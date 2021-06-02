@@ -1,0 +1,148 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro:wght@400;600;700&display=swap');
+$backgroundColor: #55bbdd;
+$titlebarCol: #77ddff;
+$containerBoxBackground: #aaddff ;
+$boxShadow:1px 2px 5px 2px darken($backgroundColor, 30%);
+
+body {
+  background-color: $backgroundColor;
+  margin:20px;
+}
+
+.content{
+  background-color:$containerBoxBackground;
+  border: solid 1px;
+  box-shadow:$boxShadow;
+  border-top:none;
+}
+
+.titlebar {
+  display: inline-block;
+  font-family: 'Source Code Pro', monospace;
+  font-weight:700;
+  position:relative;
+  padding:5px;
+  box-shadow: $boxShadow;
+  background-color:$titlebarCol;
+  i {
+    margin: 5px;
+  }
+  .fa-arrows-alt,
+  .fa-compress-alt {
+    position:absolute;
+    right: -2px;
+    &:hover{
+      cursor: pointer;
+    }
+  }
+}
+
+#preview, #editor {
+  background-color: $containerBoxBackground;
+}
+
+.editorView {
+  width: 700px;
+  margin: auto;
+  .titlebar {
+    width:99%;    
+  }
+  textarea {
+    @extend .content;
+      width:97.5%;
+      min-height: 300px;
+      margin-bottom:10px;
+      padding: 10px 10px;
+      font-size: 14px;
+    &:focus {
+      outline:none;
+    }
+  }
+}
+
+.previewerView {
+  width: 800px;
+  min-height:300px;
+  margin:15px auto;
+  overflow-wrap:break-word;
+  padding-right:20px;
+  .titlebar {
+    width:100.5%;
+    left:-1px;    
+  }
+  #preview {
+    padding-top:20px;
+    margin-top:-20px;
+    width:99%;
+    border: solid 1px;
+    padding-left: 10px;
+    padding-right:10px;   
+  }  
+}
+
+#preview {
+  h1 {
+    border-bottom: 3px solid #111;
+    padding-bottom:3px;
+  }  
+  
+  h2 {
+    border-bottom: 1px solid #222;
+  }
+  code {
+    background: whitesmoke;
+    padding:2px 4px;
+    display:inline-block;
+    font-weight: bold;
+  } 
+   pre {
+    background:whitesmoke;
+  } 
+  blockquote {
+    color:darkgreen;
+    border-left:3px solid darkgreen;
+    padding-left: 7px;
+  }
+  table {
+    border-collapse:collapse;
+  }
+  
+  td, th {
+    border: 2px solid #000;
+    padding:5px;    
+  }  
+}
+
+.maximized {
+  width:98%;
+  min-height:100vh;
+  margin:auto;
+  textarea {
+    min-height:95vh;
+    resize:none;
+  }
+}
+.hidden {
+  display:none;
+}
+
+@media screen and (max-width: 650px) {
+  .editorView {
+    width:75vw;
+    margin: auto;
+    textarea{
+      font-size:12px;
+      width:96.5%
+    }    
+  }
+  .previewerView{
+      width:85vw;
+    #preview {
+      padding-top:10px;
+      width:98%;
+      font-size:12px;   
+    }   
+  }  
+  
+}
